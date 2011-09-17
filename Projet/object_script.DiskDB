@@ -1,0 +1,12 @@
+INPUT(
+./main.o
+./myAboutTab.o
+./myAddTab.o
+./myMainWindow.o
+./mySearchTab.o
+./mySQL.o
+./myWelcomeTab.o
+./moc_myAddTab.o
+./moc_mySearchTab.o
+./moc_myWelcomeTab.o
+);

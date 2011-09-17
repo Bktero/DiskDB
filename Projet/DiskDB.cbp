@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="DiskDB" />
+		<Option makefile="MakeFile" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin\Debug\DiskDB" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj\Debug\" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+		</Compiler>
+		<Unit filename="headers\messagesUtilisateur.h" />
+		<Unit filename="headers\myAboutTab.h" />
+		<Unit filename="headers\myAddTab.h" />
+		<Unit filename="headers\myMainWindow.h" />
+		<Unit filename="headers\mySQL.h" />
+		<Unit filename="headers\mySearchTab.h" />
+		<Unit filename="headers\myWelcomeTab.h" />
+		<Unit filename="sources\main.cpp" />
+		<Unit filename="sources\myAboutTab.cpp" />
+		<Unit filename="sources\myAddTab.cpp" />
+		<Unit filename="sources\myMainWindow.cpp" />
+		<Unit filename="sources\mySQL.cpp" />
+		<Unit filename="sources\mySearchTab.cpp" />
+		<Unit filename="sources\myWelcomeTab.cpp" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

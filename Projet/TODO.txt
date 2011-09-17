@@ -1,0 +1,104 @@
+MyAddTab
+--------
+Il faut implementer, pour TITRE de l'album, un systeme identique a celui en place pour NOM de l'artiste.
+Dans le layout, il faudra mettre un menu déroulant pour le champ TITRE.
+
+373 : il faudrait implémenter une transaction avec ROLLBACK en cas d'erreur
+
+
+
+MySearchTab.c
+--------------
+
+
+
+
+messageUtilisateurs
+--------------------
+il faudrait un TR pour les messages --> a faire le jour où je voudrai traduire l'application
+
+
+Creation des tables
+-------------------
+Clés étrangères ?
+
+
+
+Message de debug classiques
+**************************
+
+qDebug() << "\n-----MySQL_execQueryModel : debut";
+qDebug() << "-----MySQL_execQueryModel : fin\n"; // a placer avant le return !
+
+
+
+Terminer le programme :
+************************
+// On termine le programme en erreur
+qApp->exit(1);
+
+
+Points intéressants en Qt
+*************************
+
+qApp->exit(1) ne fonctionne pas --> Pourquoi ?
+-----------------------------------------------
+Dans la fonction main, on fait appel au constructeur de notre fenêtre puis on fait app.exec().
+Or, pour x raisons, le constructeur souhaite terminer l'application car une erreur est survenue (exemple : impossible de lire un fichier dans lequel sont présentes des valeurs indispensables pour réaliser l'interface graphique).
+On essaye donc de faire qApp->exit(1) mais cela n'a aucun effet... Pourquoi ?
+En fait, cette instruction n'a aucun effet car on n'a pas encore exécuter l'application Qt (sur laquelle pointe qApp).
+Ainsi, on ne peut pas la quitter.
+Il faut simplement faire un exit(1), qui fait appel à la bibliothèque standard C++ et terminer le programme C++ qui lance l'application Qt.
+
+
+
+Le fichier monProjet.pro
+-------------------------
+Le fichier contient une variable nommée QT. Elle contient la liste des modules que le programme va utiliser. C'est important lors de la compilation.
+Par défaut, cette variable contient 'gui' et 'core'. Si on utilise d'autres modules, il faut les rajouter.
+Exemple : QT += sql
+pour rajouter le module 'sql'
+
+La variable CONFIG donne le monde de compilation.
+Si on souhaite compiler en mode debug et bénéficier des messages consoles (notamment avec qDebug()), il faut écrire :
+CONFIG += console debug
+
+
+
+Les slots personnalises
+-----------------------
+Si une classe implémente des slots personnalisés, il est nécessaire de commencer la déclaration de la classe par la macro suivante, définie par Qt :
+Q_OBJECT
+
+Une section "public slots" donnera ensuite les prototypes des slots personnalisés. Exemple :
+
+class MySearchTab : public QWidget
+{
+    // Necessaire pour faire des "public slots" personnalises
+    Q_OBJECT
+
+
+    public:
+        MySearchTab();
+
+    public slots:
+        void slotRechercher(void);
+
+    private:
+        QLineEdit *champTitre;
+        QSpinBox *champSortie;
+        QLineEdit *champMaison;
+};
+
+Remarque : ne surtout pas oublier le point-virgule à la fin de la déclaration de la classe.
+
+Des slots personnalisés dans un fichier monFichier.cpp va conduire à la génération d'un fichier moc_monFichier.cpp.
+
+
+La compilation avec Qt
+-----------------------
+La première étape est la commande :
+qmake -project
+Elle va permettre de générer le fichier monProjet.pro. On pourra le modifier (voir point sur le fichier .pro).
+
+
