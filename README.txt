@@ -38,7 +38,7 @@ Si vous souhaitez avoir plus d'informations sur SQLite, allez sur le site : http
 
 --------DiskDB : utilisation
 
-Pour lancer DiskDB, il suffit de double-cliquer sur fichier exécutable : DiskDB.exe.
+Pour lancer DiskDB sous Windows, il suffit de double-cliquer sur fichier exécutable : DiskDB.exe.
 
 Les nombreux fichiers DLL sont nécessaires à l'exécution du programme. Elles contiennent les fonctions offertes par Qt. Il ne faut pas les supprimer.
 
